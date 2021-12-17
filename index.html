@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="MCParks_Favicon_Hex.png" type="image/x-icon">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/vue@next"></script> 
+  <title>MCParks Fireworks Generator</title>
+</head>
+<body>
+  <div id="app">
+    <form>
+      </select>
+      <label for="position">Position:</label>
+      <input id="position" type="text" v-model="position">
+      <div class="outside">
+        <p>Outer Ball</p>
+        <label for="pcolour">Primary Color:</label>
+        <select id="pcolour" v-model="pcolour">
+          <option v-for="color in colors" v-bind:value="color.dec">{{color.name}}</option>
+        </select>
+        <input class="cc" type="number" placeholder="Custom Color" v-model="pcolour">
+        <label for="scolour">Fade Color:</label>
+        <select id="pcolour" v-model="scolour">
+          <option v-for="color in colors" v-bind:value="color.dec">{{color.name}}</option>
+        </select>
+        <input class="cc" type="number" placeholder="Custom Color" v-model="scolour">
+        <label for="oFLicker">Flicker:</label>
+        <select id="oFlicker" v-model="oflicker">
+          <option value="0">Off</option>
+          <option value="1">On</option>
+        </select>
+        <label for="oTrail">Trail:</label>
+        <select id="oTrail" v-model="otrail">
+          <option value="0">Off</option>
+          <option value="1">On</option>
+        </select>
+      </div>
+      <hr>
+      <div class="outside">
+        <p>Inner Ball</p>
+        <label for="pcolour">Primary Color:</label>
+        <select id="pcolour" v-model="ipcolour">
+          <option v-for="color in colors" v-bind:value="color.dec">{{color.name}}</option>
+        </select>
+        <input class="cc" type="number" placeholder="Custom Color" v-model="ipcolour">
+        <label for="scolour">Fade Color:</label>
+        <select id="pcolour" v-model="iscolour">
+          <option v-for="color in colors" v-bind:value="color.dec">{{color.name}}</option>
+        </select>
+        <input class="cc" type="number" placeholder="Custom Color" v-model="iscolour">
+        <label for="iFLicker">Flicker:</label>
+        <select id="iFlicker" v-model="iflicker">
+          <option value="0">Off</option>
+          <option value="1">On</option>
+        </select>
+        <label for="iTrail">Trail:</label>
+        <select id="iTrail" v-model="itrail">
+          <option value="0">Off</option>
+          <option value="1">On</option>
+        </select>
+      </div>
+    </form>
+    <div class="result">
+      <strong>Large Firework:</strong><br>
+      <code>
+      - item: 'cmd'<br>
+      &nbsp;&nbsp;cmd: summon fireworks_rocket {{position}} {Motion:[0.0,3.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Flicker:{{oflicker}},Trail:{{otrail}},Colors:[I;{{pcolour}}],FadeColors:[I;{{scolour}}]}]}}}}<br>
+      - item: 'cmd'<br>
+      &nbsp;&nbsp;cmd: summon fireworks_rocket {{position}} {Motion:[2.0,2.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Flicker:{{oflicker}},Trail:{{otrail}},Colors:[I;{{pcolour}}],FadeColors:[I;{{scolour}}]}]}}}}<br>
+      - item: 'cmd'<br>
+      &nbsp;&nbsp;cmd: summon fireworks_rocket {{position}} {Motion:[3.0,0.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Flicker:{{oflicker}},Trail:{{otrail}},Colors:[I;{{pcolour}}],FadeColors:[I;{{scolour}}]}]}}}}<br>
+      - item: 'cmd'<br>
+      &nbsp;&nbsp;cmd: summon fireworks_rocket {{position}} {Motion:[2.0,-2.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Flicker:{{oflicker}},Trail:{{otrail}},Colors:[I;{{pcolour}}],FadeColors:[I;{{scolour}}]}]}}}}<br>
+      - item: 'cmd'<br>
+      &nbsp;&nbsp;cmd: summon fireworks_rocket {{position}} {Motion:[0.0,-3.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Flicker:{{oflicker}},Trail:{{otrail}},Colors:[I;{{pcolour}}],FadeColors:[I;{{scolour}}]}]}}}}<br>
+      - item: 'cmd'<br>
+      &nbsp;&nbsp;cmd: summon fireworks_rocket {{position}} {Motion:[-2.0,-2.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Flicker:{{oflicker}},Trail:{{otrail}},Colors:[I;{{pcolour}}],FadeColors:[I;{{scolour}}]}]}}}}<br>
+      - item: 'cmd'<br>
+      &nbsp;&nbsp;cmd: summon fireworks_rocket {{position}} {Motion:[-3.0,0.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Flicker:{{oflicker}},Trail:{{otrail}},Colors:[I;{{pcolour}}],FadeColors:[I;{{scolour}}]}]}}}}<br>
+      - item: 'cmd'<br>
+      &nbsp;&nbsp;cmd: summon fireworks_rocket {{position}} {Motion:[-2.0,2.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Flicker:{{oflicker}},Trail:{{otrail}},Colors:[I;{{pcolour}}],FadeColors:[I;{{scolour}}]}]}}}}<br>
+      #Firework Ball or Star or Whatever<br>
+      - item: 'cmd'<br>
+      &nbsp;&nbsp;cmd: summon fireworks_rocket {{position}} {Motion:[0.0,0.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:1,Flicker:{{iflicker}},Trail:{{itrail}},Colors:[I;{{ipcolour}}],FadeColors:[I;{{iscolour}}]}]}}}}<br>
+      </code>
+    </div>
+    <div class="result">
+      <strong>Medium Firework:</strong><br>
+      <code>
+      - item: 'cmd'<br>
+      &nbsp;&nbsp;cmd: summon fireworks_rocket {{position}} {Motion:[0.0,1.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Flicker:{{oflicker}},Trail:{{otrail}},Colors:[I;{{pcolour}}],FadeColors:[I;{{scolour}}]}]}}}}<br>
+      - item: 'cmd'<br>
+      &nbsp;&nbsp;cmd: summon fireworks_rocket {{position}} {Motion:[0.5,0.5,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Flicker:{{oflicker}},Trail:{{otrail}},Colors:[I;{{pcolour}}],FadeColors:[I;{{scolour}}]}]}}}}<br>
+      - item: 'cmd'<br>
+      &nbsp;&nbsp;cmd: summon fireworks_rocket {{position}} {Motion:[1.0,0.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Flicker:{{oflicker}},Trail:{{otrail}},Colors:[I;{{pcolour}}],FadeColors:[I;{{scolour}}]}]}}}}<br>
+      - item: 'cmd'<br>
+      &nbsp;&nbsp;cmd: summon fireworks_rocket {{position}} {Motion:[0.5,-0.5,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Flicker:{{oflicker}},Trail:{{otrail}},Colors:[I;{{pcolour}}],FadeColors:[I;{{scolour}}]}]}}}}<br>
+      - item: 'cmd'<br>
+      &nbsp;&nbsp;cmd: summon fireworks_rocket {{position}} {Motion:[0.0,-1.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Flicker:{{oflicker}},Trail:{{otrail}},Colors:[I;{{pcolour}}],FadeColors:[I;{{scolour}}]}]}}}}<br>
+      - item: 'cmd'<br>
+      &nbsp;&nbsp;cmd: summon fireworks_rocket {{position}} {Motion:[-0.5,-0.5,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Flicker:{{oflicker}},Trail:{{otrail}},Colors:[I;{{pcolour}}],FadeColors:[I;{{scolour}}]}]}}}}<br>
+      - item: 'cmd'<br>
+      &nbsp;&nbsp;cmd: summon fireworks_rocket {{position}} {Motion:[-1.0,0.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Flicker:{{oflicker}},Trail:{{otrail}},Colors:[I;{{pcolour}}],FadeColors:[I;{{scolour}}]}]}}}}<br>
+      - item: 'cmd'<br>
+      &nbsp;&nbsp;cmd: summon fireworks_rocket {{position}} {Motion:[-0.5,0.5,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Flicker:{{oflicker}},Trail:{{otrail}},Colors:[I;{{pcolour}}],FadeColors:[I;{{scolour}}]}]}}}}<br>
+      #Firework Ball or Star or Whatever<br>
+      - item: 'cmd'<br>
+      &nbsp;&nbsp;cmd: summon fireworks_rocket {{position}} {Motion:[0.0,0.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:0,Flicker:{{iflicker}},Trail:{{itrail}},Colors:[I;{{ipcolour}}],FadeColors:[I;{{iscolour}}]}]}}}}<br>
+      </code>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
+
