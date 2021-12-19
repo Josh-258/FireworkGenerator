@@ -61,6 +61,14 @@
           <option value="0">Off</option>
           <option value="1">On</option>
         </select>
+        <label for="iType">Type:</label>
+        <select id="iType" v-model="innertype">
+          <option value="0">Small Ball</option>
+          <option value="1">Large Ball</option>
+          <option value="2">Star</option>
+          <option value="3">Creeper</option>
+          <option value="4">Burst</option>
+        </select>
       </div>
     </form>
     <div class="result">
@@ -84,7 +92,7 @@
       &nbsp;&nbsp;cmd: summon fireworks_rocket {{position}} {Motion:[-2.0,2.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Flicker:{{oflicker}},Trail:{{otrail}},Colors:[I;{{pcolour}}],FadeColors:[I;{{scolour}}]}]}}}}<br>
       #Firework Ball or Star or Whatever<br>
       - item: 'cmd'<br>
-      &nbsp;&nbsp;cmd: summon fireworks_rocket {{position}} {Motion:[0.0,0.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:1,Flicker:{{iflicker}},Trail:{{itrail}},Colors:[I;{{ipcolour}}],FadeColors:[I;{{iscolour}}]}]}}}}<br>
+      &nbsp;&nbsp;cmd: summon fireworks_rocket {{position}} {Motion:[0.0,0.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:{{innertype}},Flicker:{{iflicker}},Trail:{{itrail}},Colors:[I;{{ipcolour}}],FadeColors:[I;{{iscolour}}]}]}}}}<br>
       </code>
     </div>
     <div class="result">
@@ -108,7 +116,7 @@
       &nbsp;&nbsp;cmd: summon fireworks_rocket {{position}} {Motion:[-0.5,0.5,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Flicker:{{oflicker}},Trail:{{otrail}},Colors:[I;{{pcolour}}],FadeColors:[I;{{scolour}}]}]}}}}<br>
       #Firework Ball or Star or Whatever<br>
       - item: 'cmd'<br>
-      &nbsp;&nbsp;cmd: summon fireworks_rocket {{position}} {Motion:[0.0,0.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:0,Flicker:{{iflicker}},Trail:{{itrail}},Colors:[I;{{ipcolour}}],FadeColors:[I;{{iscolour}}]}]}}}}<br>
+      &nbsp;&nbsp;cmd: summon fireworks_rocket {{position}} {Motion:[0.0,0.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:{{innertype}},Flicker:{{iflicker}},Trail:{{itrail}},Colors:[I;{{ipcolour}}],FadeColors:[I;{{iscolour}}]}]}}}}<br>
       </code>
     </div>
   </div>

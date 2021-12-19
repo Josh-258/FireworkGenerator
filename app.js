@@ -6,10 +6,11 @@ const app = Vue.createApp({
             scolour: '',
             ipcolour: '',
             iscolour: '',
-            oflicker: '',
-            iflicker: '',
-            otrail: '',
-            itrail: '',
+            oflicker: 0,
+            iflicker: 0,
+            otrail: 1,
+            itrail: 0,
+            innertype: 1,
             fireowrkType: 'large',
             colors:
                 {
