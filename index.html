@@ -1,126 +1,432 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="MCParks_Favicon_Hex.png" type="image/x-icon">
-  <link rel="stylesheet" href="styles.css">
-  <script src="https://unpkg.com/vue@next"></script> 
-  <title>MCParks Fireworks Generator</title>
-</head>
-<body>
-  <div id="app">
-    <form>
-      </select>
-      <label for="position">Position:</label>
-      <input id="position" type="text" v-model="position">
-      <div class="outside">
-        <p>Outer Ball</p>
-        <label for="pcolour">Primary Color:</label>
-        <select id="pcolour" v-model="pcolour">
-          <option v-for="color in colors" v-bind:value="color.dec">{{color.name}}</option>
-        </select>
-        <input class="cc" type="number" placeholder="Custom Color" v-model="pcolour">
-        <label for="scolour">Fade Color:</label>
-        <select id="pcolour" v-model="scolour">
-          <option v-for="color in colors" v-bind:value="color.dec">{{color.name}}</option>
-        </select>
-        <input class="cc" type="number" placeholder="Custom Color" v-model="scolour">
-        <label for="oFLicker">Flicker:</label>
-        <select id="oFlicker" v-model="oflicker">
-          <option value="0">Off</option>
-          <option value="1">On</option>
-        </select>
-        <label for="oTrail">Trail:</label>
-        <select id="oTrail" v-model="otrail">
-          <option value="0">Off</option>
-          <option value="1">On</option>
-        </select>
-      </div>
-      <hr>
-      <div class="outside">
-        <p>Inner Ball</p>
-        <label for="pcolour">Primary Color:</label>
-        <select id="pcolour" v-model="ipcolour">
-          <option v-for="color in colors" v-bind:value="color.dec">{{color.name}}</option>
-        </select>
-        <input class="cc" type="number" placeholder="Custom Color" v-model="ipcolour">
-        <label for="scolour">Fade Color:</label>
-        <select id="pcolour" v-model="iscolour">
-          <option v-for="color in colors" v-bind:value="color.dec">{{color.name}}</option>
-        </select>
-        <input class="cc" type="number" placeholder="Custom Color" v-model="iscolour">
-        <label for="iFLicker">Flicker:</label>
-        <select id="iFlicker" v-model="iflicker">
-          <option value="0">Off</option>
-          <option value="1">On</option>
-        </select>
-        <label for="iTrail">Trail:</label>
-        <select id="iTrail" v-model="itrail">
-          <option value="0">Off</option>
-          <option value="1">On</option>
-        </select>
-        <label for="iType">Type:</label>
-        <select id="iType" v-model="innertype">
-          <option value="0">Small Ball</option>
-          <option value="1">Large Ball</option>
-          <option value="2">Star</option>
-          <option value="3">Creeper</option>
-          <option value="4">Burst</option>
-        </select>
-      </div>
-    </form>
-    <div class="result">
-      <strong>Large Firework:</strong><br>
-      <code>
-        &nbsp;&nbsp;- item: 'cmd'<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;cmd: summon fireworks_rocket {{position}} {Motion:[0.0,3.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Flicker:{{oflicker}},Trail:{{otrail}},Colors:[I;{{pcolour}}],FadeColors:[I;{{scolour}}]}]}}}}<br>
-        &nbsp;&nbsp;- item: 'cmd'<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;cmd: summon fireworks_rocket {{position}} {Motion:[2.0,2.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Flicker:{{oflicker}},Trail:{{otrail}},Colors:[I;{{pcolour}}],FadeColors:[I;{{scolour}}]}]}}}}<br>
-        &nbsp;&nbsp;- item: 'cmd'<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;cmd: summon fireworks_rocket {{position}} {Motion:[3.0,0.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Flicker:{{oflicker}},Trail:{{otrail}},Colors:[I;{{pcolour}}],FadeColors:[I;{{scolour}}]}]}}}}<br>
-        &nbsp;&nbsp;- item: 'cmd'<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;cmd: summon fireworks_rocket {{position}} {Motion:[2.0,-2.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Flicker:{{oflicker}},Trail:{{otrail}},Colors:[I;{{pcolour}}],FadeColors:[I;{{scolour}}]}]}}}}<br>
-        &nbsp;&nbsp;- item: 'cmd'<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;cmd: summon fireworks_rocket {{position}} {Motion:[0.0,-3.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Flicker:{{oflicker}},Trail:{{otrail}},Colors:[I;{{pcolour}}],FadeColors:[I;{{scolour}}]}]}}}}<br>
-        &nbsp;&nbsp;- item: 'cmd'<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;cmd: summon fireworks_rocket {{position}} {Motion:[-2.0,-2.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Flicker:{{oflicker}},Trail:{{otrail}},Colors:[I;{{pcolour}}],FadeColors:[I;{{scolour}}]}]}}}}<br>
-        &nbsp;&nbsp;- item: 'cmd'<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;cmd: summon fireworks_rocket {{position}} {Motion:[-3.0,0.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Flicker:{{oflicker}},Trail:{{otrail}},Colors:[I;{{pcolour}}],FadeColors:[I;{{scolour}}]}]}}}}<br>
-        &nbsp;&nbsp;- item: 'cmd'<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;cmd: summon fireworks_rocket {{position}} {Motion:[-2.0,2.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Flicker:{{oflicker}},Trail:{{otrail}},Colors:[I;{{pcolour}}],FadeColors:[I;{{scolour}}]}]}}}}<br>
-      #Firework Ball or Star or Whatever<br>
-      &nbsp;&nbsp;- item: 'cmd'<br>
-      &nbsp;&nbsp;&nbsp;&nbsp;cmd: summon fireworks_rocket {{position}} {Motion:[0.0,0.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:{{innertype}},Flicker:{{iflicker}},Trail:{{itrail}},Colors:[I;{{ipcolour}}],FadeColors:[I;{{iscolour}}]}]}}}}<br>
-      </code>
-    </div>
-    <div class="result">
-      <strong>Medium Firework:</strong><br>
-      <code>
-        &nbsp;&nbsp;- item: 'cmd'<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;cmd: summon fireworks_rocket {{position}} {Motion:[0.0,1.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Flicker:{{oflicker}},Trail:{{otrail}},Colors:[I;{{pcolour}}],FadeColors:[I;{{scolour}}]}]}}}}<br>
-        &nbsp;&nbsp;- item: 'cmd'<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;cmd: summon fireworks_rocket {{position}} {Motion:[0.5,0.5,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Flicker:{{oflicker}},Trail:{{otrail}},Colors:[I;{{pcolour}}],FadeColors:[I;{{scolour}}]}]}}}}<br>
-        &nbsp;&nbsp;- item: 'cmd'<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;cmd: summon fireworks_rocket {{position}} {Motion:[1.0,0.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Flicker:{{oflicker}},Trail:{{otrail}},Colors:[I;{{pcolour}}],FadeColors:[I;{{scolour}}]}]}}}}<br>
-        &nbsp;&nbsp;- item: 'cmd'<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;cmd: summon fireworks_rocket {{position}} {Motion:[0.5,-0.5,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Flicker:{{oflicker}},Trail:{{otrail}},Colors:[I;{{pcolour}}],FadeColors:[I;{{scolour}}]}]}}}}<br>
-        &nbsp;&nbsp;- item: 'cmd'<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;cmd: summon fireworks_rocket {{position}} {Motion:[0.0,-1.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Flicker:{{oflicker}},Trail:{{otrail}},Colors:[I;{{pcolour}}],FadeColors:[I;{{scolour}}]}]}}}}<br>
-        &nbsp;&nbsp;- item: 'cmd'<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;cmd: summon fireworks_rocket {{position}} {Motion:[-0.5,-0.5,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Flicker:{{oflicker}},Trail:{{otrail}},Colors:[I;{{pcolour}}],FadeColors:[I;{{scolour}}]}]}}}}<br>
-        &nbsp;&nbsp;- item: 'cmd'<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;cmd: summon fireworks_rocket {{position}} {Motion:[-1.0,0.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Flicker:{{oflicker}},Trail:{{otrail}},Colors:[I;{{pcolour}}],FadeColors:[I;{{scolour}}]}]}}}}<br>
-        &nbsp;&nbsp;- item: 'cmd'<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;cmd: summon fireworks_rocket {{position}} {Motion:[-0.5,0.5,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Flicker:{{oflicker}},Trail:{{otrail}},Colors:[I;{{pcolour}}],FadeColors:[I;{{scolour}}]}]}}}}<br>
-      #Firework Ball or Star or Whatever<br>
-      &nbsp;&nbsp;- item: 'cmd'<br>
-      &nbsp;&nbsp;&nbsp;&nbsp;cmd: summon fireworks_rocket {{position}} {Motion:[0.0,0.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:{{innertype}},Flicker:{{iflicker}},Trail:{{itrail}},Colors:[I;{{ipcolour}}],FadeColors:[I;{{iscolour}}]}]}}}}<br>
-      </code>
-    </div>
-  </div>
-  <script src="app.js"></script>
-</body>
-</html>
+<html>
 
+<head>
+    <link rel="shortcut icon" href="img/MCParks_Favicon_Hex.png" type="image/x-icon">
+    <title>MCParks Fireworks Generator</title>
+    <link rel="stylesheet" href="css/semantic.min.css">
+    <link rel="stylesheet" href="css/slick.min.css">
+    <link rel="stylesheet" href="css/slick-theme.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div id="root">
+      <div>
+        <div>
+          <div class="pushable">
+            <div class="ui vertical labeled icon ui overlay left sidebar menu"><a class="header item">About <i
+                  aria-hidden="true" class="dropdown icon"></i></a><a class="header item">Parks &amp; Servers <i
+                  aria-hidden="true" class="dropdown icon"></i></a><a class="header item">Things to Do <i
+                  aria-hidden="true" class="dropdown icon"></i></a><a class="header item"
+                href="https://mcparks.us/store">Store</a><a class="header item"
+                href="https://mcparks.us/apply">Apply</a><a class="header item" href="https://mcparks.us/support">Help/Bug
+                Tracking</a>
+              <div class="item">
+                <p>IP: <b>main.mcparks.us</b></p>
+              </div>
+              <div class="icon item"><a href="https://discord.gg/4eFrqHF" target="_blank"><img
+                    src="img/discord.png" class="ui mini inline image"></a>
+              </div>
+              <div class="icon item"><a href="https://twitter.com/MinecraftParks" target="_blank"><img
+                    src="img/twitter.png" class="ui mini inline image"></a>
+              </div>
+              <div class="icon item"><a href="https://www.youtube.com/user/McParksMinecraft" target="_blank"><img
+                    src="img/youtube.png" class="ui mini inline image"></a>
+              </div>
+            </div>
+            <div class="pusher">
+              <div attatched="top" class="ui menu"><a class="header item" href="https://mcparks.us/"><img
+                    src="img/Logo.png" class="ui small image"
+                    style="margin-right: 1.5em;"></a><a class="header item">About <i aria-hidden="true"
+                    class="dropdown icon"></i></a><a class="header item">Parks &amp; Servers <i aria-hidden="true"
+                    class="dropdown icon"></i></a><a class="header item">Things to Do <i aria-hidden="true"
+                    class="dropdown icon"></i></a><a class="header item" href="https://mcparks.us/store">Store</a><a
+                  class="header item" href="https://mcparks.us/apply">Apply</a><a class="header item"
+                  href="https://mcparks.us/support">Help/Bug Tracking</a>
+                <div>
+                  <div class="right menu">
+                    <div class="item">
+                      <p>IP: <b>main.mcparks.us</b></p>
+                    </div>
+                    <div class="icon item"><a href="https://discord.gg/4eFrqHF" target="_blank"><img
+                          src="img/discord.png"
+                          class="ui mini inline image"></a></div>
+                    <div class="icon item"><a href="https://twitter.com/MinecraftParks" target="_blank"><img
+                          src="img/twitter.png"
+                          class="ui mini inline image"></a></div>
+                    <div class="icon item"><a href="https://www.youtube.com/user/McParksMinecraft" target="_blank"><img
+                          src="img/youtube.png"
+                          class="ui mini inline image"></a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="ui container">
+        <h2 class="ui header">Firework Generator</h2>
+        <section id="position">
+            <h2>General</h2>
+            <label for="positionInput" class="labelText">Position</label>
+            <input id="positionInput" min="1" max="2" value="^50^">
+            <button id="toggleType"><strong>Toggle Firework Type: <span id="typeDisplay">Large</span></strong></button>
+        </section>
+
+        <section id="primary">
+            <h2>Outer Ball</h2>
+            <div class="flex">
+                <div class="toggleSwitch">
+                    <p>Flicker</p>
+                    <label class="switch" value="flicker">
+                        <input id="flicker-switch" type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                    <input type="hidden" id="flicker-input" value="0">
+                </div>
+                <div class="toggleSwitch">
+                    <p>Trail</p>
+                    <label class="switch">
+                        <input id="trail-switch" type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                    <input type="hidden" id="trail-input" value="0">
+                </div>
+                <div class="colorSelect">
+                    <label for="color1Input" class="labelText">Primary Color:</label>
+                    <select id="color1Input">
+                        <option value="1973019">Black</option>
+                        <option value="2437522">Blue</option>
+                        <option value="5320730">Brown</option>
+                        <option value="2651799">Cyan</option>
+                        <option value="4408131">Gray</option>
+                        <option value="3887386">Green</option>
+                        <option value="6719955">Light Blue</option>
+                        <option value="11250603">Light Gray</option>
+                        <option value="4312372">Lime</option>
+                        <option value="12801229">Magenta</option>
+                        <option value="15435844">Orange</option>
+                        <option value="14188952">Pink</option>
+                        <option value="8073150">Purple</option>
+                        <option value="11743532">Red</option>
+                        <option value="15790320">White</option>
+                        <option value="15314030">Willow</option>
+                        <option value="16504450">Yellow 2</option>
+                        <option value="14602026">Yellow</option>
+                        <option value="custom">Custom</option>
+                    </select>
+                    <input type="number" id="customColor1Input" style="display: none" placeholder="Custom Value">
+                </div>
+                <div class="colorSelect">
+                    <label for="color2Input" class="labelText">Fade Color:</label>
+                    <select id="color2Input">
+                        <option value="1973019">Black</option>
+                        <option value="2437522">Blue</option>
+                        <option value="5320730">Brown</option>
+                        <option value="2651799">Cyan</option>
+                        <option value="4408131">Gray</option>
+                        <option value="3887386">Green</option>
+                        <option value="6719955">Light Blue</option>
+                        <option value="11250603">Light Gray</option>
+                        <option value="4312372">Lime</option>
+                        <option value="12801229">Magenta</option>
+                        <option value="15435844">Orange</option>
+                        <option value="14188952">Pink</option>
+                        <option value="8073150">Purple</option>
+                        <option value="11743532">Red</option>
+                        <option value="15790320">White</option>
+                        <option value="15314030">Willow</option>
+                        <option value="16504450">Yellow 2</option>
+                        <option value="14602026">Yellow</option>
+                        <option value="custom">Custom</option>
+                    </select>
+                    <input type="number" id="customColor2Input" style="display: none" placeholder="Custom Value">
+                </div>
+            </div>
+        </section>
+
+        <section id="ball">
+            <h2>Inner Ball</h2>
+                <div class="flex">
+                <label for="typeInput" class="labelText">Type:</label>
+                <select id="typeInput" name="typeInput">
+                    <option value="0">Small Ball</option>
+                    <option value="1" selected="selected">Big Ball</option>
+                    <option value="2">Star</option>
+                    <option value="3">Creeper</option>
+                    <option value="4">Burst</option>
+                </select>
+                <div class="toggleSwitch">
+                    <p>Flicker</p>
+                    <label class="switch">
+                        <input id="flickerBall-switch" type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                    <input type="hidden" id="flickerBall-input" value="0">
+                </div>
+                <div class="toggleSwitch">
+                    <p>Trail</p>
+                    <label class="switch">
+                        <input id="trailBall-switch" type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                    <input type="hidden" id="trailBall-input" value="0">
+                </div>
+                <div class="colorSelect">
+                    <label for="colorBall1Input" class="labelText">Primary Color:</label>
+                    <select id="colorBall1Input">
+                        <option value="1973019">Black</option>
+                        <option value="2437522">Blue</option>
+                        <option value="5320730">Brown</option>
+                        <option value="2651799">Cyan</option>
+                        <option value="4408131">Gray</option>
+                        <option value="3887386">Green</option>
+                        <option value="6719955">Light Blue</option>
+                        <option value="11250603">Light Gray</option>
+                        <option value="4312372">Lime</option>
+                        <option value="12801229">Magenta</option>
+                        <option value="15435844">Orange</option>
+                        <option value="14188952">Pink</option>
+                        <option value="8073150">Purple</option>
+                        <option value="11743532">Red</option>
+                        <option value="15790320">White</option>
+                        <option value="15314030">Willow</option>
+                        <option value="16504450">Yellow 2</option>
+                        <option value="14602026">Yellow</option>
+                        <option value="custom">Custom</option>
+                    </select>
+                    <input type="number" id="customColorBall1Input" style="display: none" placeholder="Custom Value">
+                </div>
+                <div class="colorSelect">
+                    <label for="colorBall2Input" class="labelText">Fade Color:</label>
+                    <select id="colorBall2Input">
+                        <option value="1973019">Black</option>
+                        <option value="2437522">Blue</option>
+                        <option value="5320730">Brown</option>
+                        <option value="2651799">Cyan</option>
+                        <option value="4408131">Gray</option>
+                        <option value="3887386">Green</option>
+                        <option value="6719955">Light Blue</option>
+                        <option value="11250603">Light Gray</option>
+                        <option value="4312372">Lime</option>
+                        <option value="12801229">Magenta</option>
+                        <option value="15435844">Orange</option>
+                        <option value="14188952">Pink</option>
+                        <option value="8073150">Purple</option>
+                        <option value="11743532">Red</option>
+                        <option value="15790320">White</option>
+                        <option value="15314030">Willow</option>
+                        <option value="16504450">Yellow 2</option>
+                        <option value="14602026">Yellow</option>
+                        <option value="custom">Custom</option>
+                    </select>
+                    <input type="number" id="customColorBall2Input" style="display: none" placeholder="Custom Value">
+                </div>
+            </div>
+        </section>
+
+        <!-- <div id="fireworkType">
+            <h3>Firework Type: <span id="typeDisplay">Large</span></h3>
+        </div> -->
+
+        <div id="codeBox">
+            <p>CopyCode</p>
+            <pre id="generatedCode" style="text-align: left;">
+            <!-- Generated code will appear here -->
+            </pre>
+        </div>
+        <br>
+        <hr>
+        <div class="maps"></div>
+            <h2>Maps</h2>
+            <div class="mapSelect">
+                <label for="MapInput" class="labelText">Park:</label>
+                <select id="MapInput">
+                    <option value="img/maps/Disneyland.png">Disneyland</option>
+                    <option value="img/maps/DisneylandParis.png">Disneyland Paris</option>
+                    <option value="img/maps/Epcot.png">Epcot</option>
+                    <option value="img/maps/MagicKingdom.png" selected="selected">Magic Kingdom</option>
+                    <option value="img/maps/TokyoDisneyland.png">TokyoDisneyland</option>
+                </select>
+            </div>
+            <a id="fwMapLink" href="img/maps/MagicKingdom.png" target="_blank"><img style="width: 100%;" id="fwMap" src="img/maps/MagicKingdom.png"></a>
+        </div>
+    </div>
+
+</body>
+<script>
+    let copy = 0;
+    let largeFirework = true;
+    let generatedCode = '';
+
+    generateCode();
+
+    document.getElementById('positionInput').addEventListener('input', function () {
+        generateCode();
+    });
+
+    document.getElementById('toggleType').addEventListener('click', function () {
+        largeFirework = !largeFirework;
+        document.getElementById('typeInput').disabled = largeFirework;
+        document.getElementById('typeDisplay').textContent = largeFirework ? "Large" : "Medium";
+        generateCode();
+    });
+
+    document.getElementById('color1Input').addEventListener('change', function () {
+        const customColor1Input = document.getElementById('customColor1Input');
+        customColor1Input.disabled = this.value !== 'custom';
+        generateCode();
+    });
+
+    document.getElementById('color2Input').addEventListener('change', function () {
+        const customColor2Input = document.getElementById('customColor2Input');
+        customColor2Input.disabled = this.value !== 'custom';
+        generateCode();
+    });
+
+    document.getElementById('colorBall1Input').addEventListener('change', function () {
+        const customColorBall1Input = document.getElementById('customColorBall1Input');
+        customColorBall1Input.disabled = this.value !== 'custom';
+        generateCode();
+    });
+
+    document.getElementById('colorBall2Input').addEventListener('change', function () {
+        const customColorBall2Input = document.getElementById('customColorBall2Input');
+        customColorBall2Input.disabled = this.value !== 'custom';
+        generateCode();
+    });
+
+    function toggleSwitch(switchId) {
+        const switchElement = document.getElementById(switchId);
+        switchElement.textContent = switchElement.textContent === "On" ? "Off" : "On";
+        const switchValue = switchElement.textContent === "On" ? 1 : 0;
+        const inputElement = document.getElementById(switchId.replace("-switch", "-input"));
+        inputElement.value = switchValue;
+        generateCode();
+    }
+
+    document.getElementById('flicker-switch').addEventListener('click', function () {
+        toggleSwitch('flicker-switch');
+        generateCode();
+    });
+
+    document.getElementById('trail-switch').addEventListener('click', function () {
+        toggleSwitch('trail-switch');
+        generateCode();
+    });
+
+    document.getElementById('flickerBall-switch').addEventListener('click', function () {
+        toggleSwitch('flickerBall-switch');
+        generateCode();
+    });
+
+    document.getElementById('trailBall-switch').addEventListener('click', function () {
+        toggleSwitch('trailBall-switch');
+        generateCode();
+    });
+
+    function generateCode() {
+        console.log(copy);
+        if (copy != 3) {
+            const positionInput = document.getElementById('positionInput');
+            const typeInput = document.getElementById('typeInput');
+            const color1Input = document.getElementById('color1Input');
+            const color2Input = document.getElementById('color2Input');
+            const colorBall1Input = document.getElementById('colorBall1Input');
+            const colorBall2Input = document.getElementById('colorBall2Input');
+            const flickerInput = document.getElementById('flicker-input');
+            const trailInput = document.getElementById('trail-input');
+            const flickerBallInput = document.getElementById('flickerBall-input');
+            const trailBallInput = document.getElementById('trailBall-input');
+
+            const position = positionInput.value;
+            const type = typeInput.value; // Get the selected value from the dropdown
+            const color1 = color1Input.value;
+            const color2 = color2Input.value;
+            const colorBall1 = colorBall1Input.value;
+            const colorBall2 = colorBall2Input.value;
+            const flicker = flickerInput.value;
+            const trail = trailInput.value;
+            const flickerBall = flickerBallInput.value;
+            const trailBall = trailBallInput.value;
+
+            if (largeFirework) {
+                generatedCode = `- item: 'cmd'\n` +
+                    `  cmd: summon fireworks_rocket ${position} {Motion:[0.0,3.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:${type},Flicker:${flicker},Trail:${trail},Colors:[I;${color1}],FadeColors:[I;${color2}]]}]}}}\n` +
+                    `- item: 'cmd'\n` +
+                    `  cmd: summon fireworks_rocket ${position} {Motion:[0.5,0.5,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:${type},Flicker:${flicker},Trail:${trail},Colors:[I;${color1}],FadeColors:[I;${color2}]}]}}}\n` +
+                    `- item: 'cmd'\n` +
+                    `  cmd: summon fireworks_rocket ${position} {Motion:[1.0,0.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:${type},Flicker:${flicker},Trail:${trail},Colors:[I;${color1}],FadeColors:[I;${color2}]}]}}}\n` +
+                    `- item: 'cmd'\n` +
+                    `  cmd: summon fireworks_rocket ${position} {Motion:[0.5,-0.5,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:${type},Flicker:${flicker},Trail:${trail},Colors:[I;${color1}],FadeColors:[I;${color2}]}]}}}\n` +
+                    `- item: 'cmd'\n` +
+                    `  cmd: summon fireworks_rocket ${position} {Motion:[0.0,-1.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:${type},Flicker:${flicker},Trail:${trail},Colors:[I;${color1}],FadeColors:[I;${color2}]}]}}}\n` +
+                    `- item: 'cmd'\n` +
+                    `  cmd: summon fireworks_rocket ${position} {Motion:[-0.5,-0.5,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:${type},Flicker:${flicker},Trail:${trail},Colors:[I;${color1}],FadeColors:[I;${color2}]}]}}}\n` +
+                    `- item: 'cmd'\n` +
+                    `  cmd: summon fireworks_rocket ${position} {Motion:[-1.0,0.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:${type},Flicker:${flicker},Trail:${trail},Colors:[I;${color1}],FadeColors:[I;${color2}]}]}}}\n` +
+                    `- item: 'cmd'\n` +
+                    `  cmd: summon fireworks_rocket ${position} {Motion:[-0.5,0.5,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:${type},Flicker:${flicker},Trail:${trail},Colors:[I;${color1}],FadeColors:[I;${color2}]}]}}}\n` +
+                    `# Firework Ball or Star or Whatever\n` +
+                    `- item: 'cmd'\n` +
+                    `  cmd: summon fireworks_rocket ${position} {Motion:[0.0,0.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:${type},Flicker:${flickerBall},Trail:${trailBall},Colors:[I;${colorBall1}],FadeColors:[I;${colorBall2}]}]}}}`;
+            } else {
+                // Handle medium firework code here
+                generatedCode = `- item: 'cmd'\n` +
+                    `  cmd: summon fireworks_rocket ${position} {Motion:[0.0,1.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:${type},Flicker:${flicker},Trail:${trail},Colors:[I;${color1}],FadeColors:[I;${color2}]]}]}}}\n` +
+                    `- item: 'cmd'\n` +
+                    `  cmd: summon fireworks_rocket ${position} {Motion:[0.5,0.5,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:${type},Flicker:${flicker},Trail:${trail},Colors:[I;${color1}],FadeColors:[I;${color2}]}]}}}\n` +
+                    `- item: 'cmd'\n` +
+                    `  cmd: summon fireworks_rocket ${position} {Motion:[1.0,0.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:${type},Flicker:${flicker},Trail:${trail},Colors:[I;${color1}],FadeColors:[I;${color2}]}]}}}\n` +
+                    `- item: 'cmd'\n` +
+                    `  cmd: summon fireworks_rocket ${position} {Motion:[0.5,-0.5,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:${type},Flicker:${flicker},Trail:${trail},Colors:[I;${color1}],FadeColors:[I;${color2}]}]}}}\n` +
+                    `- item: 'cmd'\n` +
+                    `  cmd: summon fireworks_rocket ${position} {Motion:[0.0,-1.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:${type},Flicker:${flicker},Trail:${trail},Colors:[I;${color1}],FadeColors:[I;${color2}]}]}}}\n` +
+                    `- item: 'cmd'\n` +
+                    `  cmd: summon fireworks_rocket ${position} {Motion:[-0.5,-0.5,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:${type},Flicker:${flicker},Trail:${trail},Colors:[I;${color1}],FadeColors:[I;${color2}]}]}}}\n` +
+                    `- item: 'cmd'\n` +
+                    `  cmd: summon fireworks_rocket ${position} {Motion:[-1.0,0.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:${type},Flicker:${flicker},Trail:${trail},Colors:[I;${color1}],FadeColors:[I;${color2}]}]}}}\n` +
+                    `- item: 'cmd'\n` +
+                    `  cmd: summon fireworks_rocket ${position} {Motion:[-0.5,0.5,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:${type},Flicker:${flicker},Trail:${trail},Colors:[I;${color1}],FadeColors:[I;${color2}]}]}}}\n` +
+                    `# Firework Ball or Star or Whatever\n` +
+                    `- item: 'cmd'\n` +
+                    `  cmd: summon fireworks_rocket ${position} {Motion:[0.0,0.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:${type},Flicker:${flickerBall},Trail:${trailBall},Colors:[I;${colorBall1}],FadeColors:[I;${colorBall2}]}]}}}`;
+            }
+
+            document.getElementById('generatedCode').textContent = generatedCode;
+            copy = 1;
+        }
+    }
+
+
+    document.getElementById('codeBox').addEventListener('click', function () {
+        console.log(copy);
+        if (copy === 1) {
+            copy = 3;
+            const generatedCode = document.getElementById('generatedCode').textContent;
+            const textarea = document.createElement('textarea');
+            textarea.value = generatedCode;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            document.getElementById('generatedCode').textContent = "Code copied to clipboard";
+            setTimeout(function(){
+                document.getElementById('generatedCode').textContent = generatedCode;
+                copy = 0;
+            }, 1000)
+        } else if (copy === 0) {
+            document.getElementById('generatedCode').textContent = "Please Generate code first!";
+            setTimeout(function(){
+                document.getElementById('generatedCode').textContent = generatedCode;
+                copy = 0;
+            }, 1000)
+        }
+    });
+
+    document.getElementById('MapInput').addEventListener('change', function () {
+        const mapInput = document.getElementById('fwMap').src = this.value;
+        const mapInputLink = document.getElementById('fwMapLink').href = this.value;
+    });
+</script>
+</body>
+
+</html>

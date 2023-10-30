@@ -1,0 +1,303 @@
+body {
+    font-size: 13px;
+    font-family: Roboto,'Helvetica Neue',Arial,Helvetica,sans-serif;
+    color: #212121;
+    background-color: rgb(92, 156, 254);
+}
+
+.container {
+    text-align: center;
+    padding: 10px;
+    border-radius: .28571429rem;
+    width: 55%;
+    height: 100%;
+    margin: auto;
+    background-color: white;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex * {
+    flex-grow: 1;
+}
+
+.labelText {
+    line-height: 57.99px;
+}
+
+section {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input {
+    width: 50px;
+}
+
+pre {
+    background-color: #f0f0f0;
+    padding: 10px;
+    font-family: monospace;
+    white-space: pre-wrap;
+}
+
+#fireworkType {
+    margin-top: 20px;
+}
+
+#generatedCode {
+    background-color: #f8f8f8;
+    padding: 10px;
+    border: 1px solid #ddd;
+    font-family: monospace;
+    white-space: pre-wrap;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: white;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+nav ul {
+    display: flex;
+}
+
+header {
+    margin: 0 0 14px;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.content {
+    background-color: #f8f8f8;
+    padding: 20px;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+h1 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+button {
+    cursor: pointer;
+    display: inline-block;
+    min-height: 1em;
+    outline: 0;
+    border: none;
+    vertical-align: baseline;
+    background: #fff -webkit-gradient(linear,left top,left bottom,from(transparent),to(rgba(0,0,0,.02)));
+    background: #fff -webkit-linear-gradient(transparent,rgba(0,0,0,.02));
+    background: #fff linear-gradient(transparent,rgba(0,0,0,.02));
+    color: rgba(0,0,0,.6);
+    font-family: Roboto,Arial,sans-serif;
+    margin: 0 .25em 0 0;
+    padding: .8em .8em .8em;
+    text-transform: none;
+    text-shadow: none;
+    font-weight: 400;
+    line-height: 1em;
+    font-style: normal;
+    text-align: center;
+    text-decoration: none;
+    border-radius: .21428571em;
+    -webkit-box-shadow: 0 0 0 1px #ddd inset,0 0 0 0 transparent;
+    box-shadow: 0 0 0 1px #ddd inset,0 0 0 0 transparent;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-transition: opacity .3s ease,background-color .3s ease,color .3s ease,background .3s ease,-webkit-box-shadow .3s ease;
+    transition: opacity .3s ease,background-color .3s ease,color .3s ease,background .3s ease,-webkit-box-shadow .3s ease;
+    transition: opacity .3s ease,background-color .3s ease,color .3s ease,box-shadow .3s ease,background .3s ease;
+    transition: opacity .3s ease,background-color .3s ease,color .3s ease,box-shadow .3s ease,background .3s ease,-webkit-box-shadow .3s ease;
+    will-change: '';
+    -webkit-tap-highlight-color: transparent;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+input, select {
+    margin: 0;
+    max-width: 100%;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 0 auto;
+    flex: 1 0 auto;
+    outline: 0;
+    -webkit-tap-highlight-color: rgba(255,255,255,0);
+    text-align: left;
+    line-height: 1.21428571em;
+    font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+    padding: .67857143em 1em;
+    background: #fff;
+    border: 1px solid rgba(34,36,38,.15);
+    color: rgba(0,0,0,.87);
+    border-radius: .28571429rem;
+    -webkit-transition: border-color .1s ease,-webkit-box-shadow .1s ease;
+    transition: border-color .1s ease,-webkit-box-shadow .1s ease;
+    transition: box-shadow .1s ease,border-color .1s ease;
+    transition: box-shadow .1s ease,border-color .1s ease,-webkit-box-shadow .1s ease;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+input[type="text"]:focus, select:focus {
+    outline: none;
+    border-color: #007BFF;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    margin: 5px 0;
+}
+
+#positionInput {
+    text-align: center;
+    width: 50%;
+}
+
+h1 {
+    font-weight: 400;
+    font-size: 31.5px;
+}
+
+#codeBox {
+    border: 1px solid #ccc;
+}
+
+#codeBox p {
+    cursor: pointer;
+    margin: 0;
+    padding: 0 1em 0 1em;
+    text-align: right;
+    background-color: #353541;
+    color: white;
+}
+
+#generatedCode {
+    min-height: 60px;
+    cursor: pointer;
+    margin: 0;
+    background-color: #000000;
+    color: white;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.toggleSwitch p, .labelText {
+    font-size: 1.2rem;
+    margin: 0px;
+}
+
+#fwMapLink {
+    margin: auto;
+}
+
+.ui.menu .item:before {
+    position: absolute;
+    content: '';
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 1px;
+    background: none;
+}
+
+/* Custom styles for specific elements on the page */
+/* Update these styles to match the specific elements on the target page */
