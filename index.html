@@ -349,42 +349,42 @@
 
             if (largeFirework) {
                 generatedCode = `- item: 'cmd'\n` +
-                    `  cmd: summon fireworks_rocket ${position} {Motion:[0.0,3.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:${type},Flicker:${flicker},Trail:${trail},Colors:[I;${color1}],FadeColors:[I;${color2}]]}]}}}\n` +
+                    `  cmd: summon fireworks_rocket ${position} {Motion:[0.0,3.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Flicker:${flicker},Trail:${trail},Colors:[I;${color1}],FadeColors:[I;${color2}]]}]}}}\n` +
                     `- item: 'cmd'\n` +
-                    `  cmd: summon fireworks_rocket ${position} {Motion:[0.5,0.5,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:${type},Flicker:${flicker},Trail:${trail},Colors:[I;${color1}],FadeColors:[I;${color2}]}]}}}\n` +
+                    `  cmd: summon fireworks_rocket ${position} {Motion:[0.5,0.5,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Flicker:${flicker},Trail:${trail},Colors:[I;${color1}],FadeColors:[I;${color2}]}]}}}\n` +
                     `- item: 'cmd'\n` +
-                    `  cmd: summon fireworks_rocket ${position} {Motion:[1.0,0.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:${type},Flicker:${flicker},Trail:${trail},Colors:[I;${color1}],FadeColors:[I;${color2}]}]}}}\n` +
+                    `  cmd: summon fireworks_rocket ${position} {Motion:[1.0,0.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Flicker:${flicker},Trail:${trail},Colors:[I;${color1}],FadeColors:[I;${color2}]}]}}}\n` +
                     `- item: 'cmd'\n` +
-                    `  cmd: summon fireworks_rocket ${position} {Motion:[0.5,-0.5,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:${type},Flicker:${flicker},Trail:${trail},Colors:[I;${color1}],FadeColors:[I;${color2}]}]}}}\n` +
+                    `  cmd: summon fireworks_rocket ${position} {Motion:[0.5,-0.5,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Flicker:${flicker},Trail:${trail},Colors:[I;${color1}],FadeColors:[I;${color2}]}]}}}\n` +
                     `- item: 'cmd'\n` +
-                    `  cmd: summon fireworks_rocket ${position} {Motion:[0.0,-1.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:${type},Flicker:${flicker},Trail:${trail},Colors:[I;${color1}],FadeColors:[I;${color2}]}]}}}\n` +
+                    `  cmd: summon fireworks_rocket ${position} {Motion:[0.0,-1.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Flicker:${flicker},Trail:${trail},Colors:[I;${color1}],FadeColors:[I;${color2}]}]}}}\n` +
                     `- item: 'cmd'\n` +
-                    `  cmd: summon fireworks_rocket ${position} {Motion:[-0.5,-0.5,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:${type},Flicker:${flicker},Trail:${trail},Colors:[I;${color1}],FadeColors:[I;${color2}]}]}}}\n` +
+                    `  cmd: summon fireworks_rocket ${position} {Motion:[-0.5,-0.5,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Flicker:${flicker},Trail:${trail},Colors:[I;${color1}],FadeColors:[I;${color2}]}]}}}\n` +
                     `- item: 'cmd'\n` +
-                    `  cmd: summon fireworks_rocket ${position} {Motion:[-1.0,0.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:${type},Flicker:${flicker},Trail:${trail},Colors:[I;${color1}],FadeColors:[I;${color2}]}]}}}\n` +
+                    `  cmd: summon fireworks_rocket ${position} {Motion:[-1.0,0.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Flicker:${flicker},Trail:${trail},Colors:[I;${color1}],FadeColors:[I;${color2}]}]}}}\n` +
                     `- item: 'cmd'\n` +
-                    `  cmd: summon fireworks_rocket ${position} {Motion:[-0.5,0.5,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:${type},Flicker:${flicker},Trail:${trail},Colors:[I;${color1}],FadeColors:[I;${color2}]}]}}}\n` +
+                    `  cmd: summon fireworks_rocket ${position} {Motion:[-0.5,0.5,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Flicker:${flicker},Trail:${trail},Colors:[I;${color1}],FadeColors:[I;${color2}]}]}}}\n` +
                     `# Firework Ball or Star or Whatever\n` +
                     `- item: 'cmd'\n` +
                     `  cmd: summon fireworks_rocket ${position} {Motion:[0.0,0.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:${type},Flicker:${flickerBall},Trail:${trailBall},Colors:[I;${colorBall1}],FadeColors:[I;${colorBall2}]}]}}}`;
             } else {
                 // Handle medium firework code here
                 generatedCode = `- item: 'cmd'\n` +
-                    `  cmd: summon fireworks_rocket ${position} {Motion:[0.0,1.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:${type},Flicker:${flicker},Trail:${trail},Colors:[I;${color1}],FadeColors:[I;${color2}]]}]}}}\n` +
+                    `  cmd: summon fireworks_rocket ${position} {Motion:[0.0,1.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Flicker:${flicker},Trail:${trail},Colors:[I;${color1}],FadeColors:[I;${color2}]]}]}}}\n` +
                     `- item: 'cmd'\n` +
-                    `  cmd: summon fireworks_rocket ${position} {Motion:[0.5,0.5,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:${type},Flicker:${flicker},Trail:${trail},Colors:[I;${color1}],FadeColors:[I;${color2}]}]}}}\n` +
+                    `  cmd: summon fireworks_rocket ${position} {Motion:[0.5,0.5,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Flicker:${flicker},Trail:${trail},Colors:[I;${color1}],FadeColors:[I;${color2}]}]}}}\n` +
                     `- item: 'cmd'\n` +
-                    `  cmd: summon fireworks_rocket ${position} {Motion:[1.0,0.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:${type},Flicker:${flicker},Trail:${trail},Colors:[I;${color1}],FadeColors:[I;${color2}]}]}}}\n` +
+                    `  cmd: summon fireworks_rocket ${position} {Motion:[1.0,0.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Flicker:${flicker},Trail:${trail},Colors:[I;${color1}],FadeColors:[I;${color2}]}]}}}\n` +
                     `- item: 'cmd'\n` +
-                    `  cmd: summon fireworks_rocket ${position} {Motion:[0.5,-0.5,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:${type},Flicker:${flicker},Trail:${trail},Colors:[I;${color1}],FadeColors:[I;${color2}]}]}}}\n` +
+                    `  cmd: summon fireworks_rocket ${position} {Motion:[0.5,-0.5,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Flicker:${flicker},Trail:${trail},Colors:[I;${color1}],FadeColors:[I;${color2}]}]}}}\n` +
                     `- item: 'cmd'\n` +
-                    `  cmd: summon fireworks_rocket ${position} {Motion:[0.0,-1.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:${type},Flicker:${flicker},Trail:${trail},Colors:[I;${color1}],FadeColors:[I;${color2}]}]}}}\n` +
+                    `  cmd: summon fireworks_rocket ${position} {Motion:[0.0,-1.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Flicker:${flicker},Trail:${trail},Colors:[I;${color1}],FadeColors:[I;${color2}]}]}}}\n` +
                     `- item: 'cmd'\n` +
-                    `  cmd: summon fireworks_rocket ${position} {Motion:[-0.5,-0.5,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:${type},Flicker:${flicker},Trail:${trail},Colors:[I;${color1}],FadeColors:[I;${color2}]}]}}}\n` +
+                    `  cmd: summon fireworks_rocket ${position} {Motion:[-0.5,-0.5,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Flicker:${flicker},Trail:${trail},Colors:[I;${color1}],FadeColors:[I;${color2}]}]}}}\n` +
                     `- item: 'cmd'\n` +
-                    `  cmd: summon fireworks_rocket ${position} {Motion:[-1.0,0.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:${type},Flicker:${flicker},Trail:${trail},Colors:[I;${color1}],FadeColors:[I;${color2}]}]}}}\n` +
+                    `  cmd: summon fireworks_rocket ${position} {Motion:[-1.0,0.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Flicker:${flicker},Trail:${trail},Colors:[I;${color1}],FadeColors:[I;${color2}]}]}}}\n` +
                     `- item: 'cmd'\n` +
-                    `  cmd: summon fireworks_rocket ${position} {Motion:[-0.5,0.5,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:${type},Flicker:${flicker},Trail:${trail},Colors:[I;${color1}],FadeColors:[I;${color2}]}]}}}\n` +
+                    `  cmd: summon fireworks_rocket ${position} {Motion:[-0.5,0.5,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Flicker:${flicker},Trail:${trail},Colors:[I;${color1}],FadeColors:[I;${color2}]}]}}}\n` +
                     `# Firework Ball or Star or Whatever\n` +
                     `- item: 'cmd'\n` +
                     `  cmd: summon fireworks_rocket ${position} {Motion:[0.0,0.0,0.0],FireworksItem:{id:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:${type},Flicker:${flickerBall},Trail:${trailBall},Colors:[I;${colorBall1}],FadeColors:[I;${colorBall2}]}]}}}`;
