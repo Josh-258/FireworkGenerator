@@ -293,6 +293,10 @@
         generateCode();
     });
 
+    document.getElementById('typeInput').addEventListener('change', function () {
+        generateCode();
+    });
+
     function toggleSwitch(switchId) {
         const switchElement = document.getElementById(switchId);
         switchElement.textContent = switchElement.textContent === "On" ? "Off" : "On";
