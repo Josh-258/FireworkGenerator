@@ -264,7 +264,6 @@
 
     document.getElementById('toggleType').addEventListener('click', function () {
         largeFirework = !largeFirework;
-        document.getElementById('typeInput').disabled = largeFirework;
         document.getElementById('typeDisplay').textContent = largeFirework ? "Large" : "Medium";
         generateCode();
     });
